@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+  
+  <module package="com.axelor.student.db" name="School"/>
+  
+  <entity name="School" table="School_Name">
+  		<string name="sname" title="School Name" column="sname" />
+  		
+  		<one-to-one ref="com.axelor.student.db.Address" name="address" title="Address" orphanRemoval="true"/>
+  		<one-to-many ref="com.axelor.student.db.Student" name="studentList" title="Students" mappedBy="school"/>
+  		<many-to-many ref="com.axelor.employee.db.Employee" name="employeeSet" title="Employees"/>
+  </entity>
+  
+ </domain-models>
+ 

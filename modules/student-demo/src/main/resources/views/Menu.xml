@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+ 
+ <menuitem title="Students" name="student-root"/>
+ <menuitem title="Student" name="student-root-student" parent="student-root" action="action.student.root.student"/>
+ <action-view name="action.student.root.student" title="Student" model="com.axelor.student.db.Student">
+		<view type="grid" name="student-grid"/>
+		<view type="form" name="student-form"/>
+		
+ </action-view>
+ 
+ <menuitem title="Employees" name="employee-root"/>
+ <menuitem title="employee" name="employee-root-employee" parent="employee-root" action="action.employee.root.employee"/>
+ <action-view name="action.employee.root.employee" title="employee" model="com.axelor.employee.db.Employee">
+ 	<view type="grid" name="employee-grid"/>
+ 	<view type="form" name="employee-form"/>
+ </action-view>
+ 
+ </object-views>
+ 

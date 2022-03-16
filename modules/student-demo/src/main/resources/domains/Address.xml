@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+  
+  <module package="com.axelor.student.db" name="Address"/>
+ 
+  <entity name="Address" table="Address_Table">
+  		<string name="city" title="City Name" />
+  		<one-to-one ref="com.axelor.student.db.School" name="achool" title="School" mappedBy="address"/>
+ 
+  </entity>
+ </domain-models>
+ 

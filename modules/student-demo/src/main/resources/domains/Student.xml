@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+
+ <module package="com.axelor.student.db" name="Student"/>
+ 
+ <sequence name="employee.ref" increment="1" padding="4" prefix="NK" initial="1" suffix="AXE"/>
+ 
+ <enum name="STATUS">
+ 	<item name="PASS" value="pass"/>
+ 	<item name="FAIL" value="fail"/>
+ </enum>
+ 
+ <entity name="Student" lang="java" table="Student_table" >
+ 
+ 	<string name="name" min="4" max="20" default="axelor" column="Student_Name" required="true" />
+ 	<string name="rollnumber" title="Roll Number" min="1" max="100" unique="true"/>
+ 	<integer name="classno" title="Class Number" massUpdate="true" max="10"/>
+ 	<date name="DOB" />
+ 	<string name="description" title="Descrption" large="true" multiline="true"/>
+ 	<string name="reference" title="Reference" sequence="employee.ref"/>
+ 	<string name="password" title="Password" password="true" encrypted="true"/>
+ 	<decimal name="percentafe" title="%" help="ENter your Aggrigate percentage till now" precision="5" scale="2"/>
+ 	<enum name="status" ref="STATUS"/>
+ 	<binary name="image" title="Image" help="Insert Image"/>
+ 	<many-to-one ref="com.axelor.student.db.School" name="school" title="School Name"/>
+ 	<unique-constraint columns="rollnumber"/>
+ 	
+ </entity>
+
+</domain-models>

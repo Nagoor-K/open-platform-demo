@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+ 
+  <module package="com.axelor.employee.db" name="Employee"/>
+  
+  <entity name="Employee" lang="java" table="Employee_Table" >
+  
+  		<string name="ename" required="true" column="Employee_Name" min="5" max="15" default="axelor" />
+  		<boolean name="active" />
+  		<integer name="roomno" title="OfficeRoom Number" />
+  		<long name="salary" required="true" column="Salary" title="Salary"/>
+  		<date name="inDate" title="Joining Datee"/>
+  		<time name="duration" title="In Time"/>
+  		<datetime name="startsOn" tz="true" title="Starting From"/>
+  		<many-to-one ref="com.axelor.meta.db.MetaFile" name="image" title="Image"/>
+  		
+  		
+  </entity>
+ </domain-models>
+ 
