@@ -3,20 +3,33 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
  
- <menuitem title="Students" name="student-root"/>
- <menuitem title="Student" name="student-root-student" parent="student-root" action="action.student.root.student"/>
- <action-view name="action.student.root.student" title="Student" model="com.axelor.student.db.Student">
+ <menuitem title="Demo College" name="student-root"/>
+ <menuitem title="Students" name="student-root-student" parent="student-root" action="action.student.root.student"/>
+ <action-view name="action.student.root.student" title="Students" model="com.axelor.student.db.Student">
 		<view type="grid" name="student-grid"/>
 		<view type="form" name="student-form"/>
 		
  </action-view>
  
- <menuitem title="Employees" name="employee-root"/>
- <menuitem title="employee" name="employee-root-employee" parent="employee-root" action="action.employee.root.employee"/>
- <action-view name="action.employee.root.employee" title="employee" model="com.axelor.employee.db.Employee">
- 	<view type="grid" name="employee-grid"/>
- 	<view type="form" name="employee-form"/>
+ 
+ <menuitem title="Employees" name="student-root-employee" parent="student-root" action="action.student.root.employee"/>
+ <action-view name="action.student.root.employee" title="Employees" model="com.axelor.employee.db.Employee">
+ 		<view type="grid" name="employee-grid"/>
+ 		<view type="form" name="employee-form"/>
  </action-view>
+ 
+ <menuitem title="Schools" name="student-root-school" parent="student-root" action="action.student.root.school"/>
+ <action-view name="action.student.root.school" title="Schools" model="com.axelor.student.db.School">
+ 		<view type="grid" name="school-grid"/>
+ 		<view type="form" name="school-form"/>
+ </action-view>
+ 
+ <menuitem title="Address" name="student-root-address" parent="student-root" action="action.student.root.address"/>
+ <action-view name="action.student.root.address" title="Address" model="com.axelor.student.db.Address">
+ 		<view type="grid" name="address-grid"/>
+ 		<view type="form" name="address-from"/>
+ </action-view>
+ 
  
  </object-views>
  

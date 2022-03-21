@@ -4,13 +4,22 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
   
   <module package="com.axelor.student.db" name="School"/>
-  
-  <entity name="School" table="School_Name">
-  		<string name="sname" title="School Name" column="sname" />
+  <entity name="School" table="School_Name" >
+  		<string name="schooltype" title="School Type" selection="student.schools.school.type"/>
+  		<string name="sname" title="School Name" column="sname" namecolumn="true"/> <!-- only once in the entire entity -->
   		
   		<one-to-one ref="com.axelor.student.db.Address" name="address" title="Address" orphanRemoval="true"/>
   		<one-to-many ref="com.axelor.student.db.Student" name="studentList" title="Students" mappedBy="school"/>
   		<many-to-many ref="com.axelor.employee.db.Employee" name="employeeSet" title="Employees"/>
+  		<extra-code>
+  			<![CDATA[
+  			//write in class
+  			public static final String Government="government";
+  			public static final String SemiGovernment="semi-geovernmenr";
+  			public static final String Private="private";
+  			]]>
+  		</extra-code>
+  
   </entity>
   
  </domain-models>

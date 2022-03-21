@@ -6,8 +6,9 @@
   <module package="com.axelor.student.db" name="Address"/>
  
   <entity name="Address" table="Address_Table">
-  		<string name="city" title="City Name" />
-  		<one-to-one ref="com.axelor.student.db.School" name="achool" title="School" mappedBy="address"/>
+  
+  		<string name="name" title="City Name" namecolumn="true"/>
+  		<one-to-one ref="com.axelor.student.db.School" name="school" mappedBy="address"/>
  
   </entity>
  </domain-models>

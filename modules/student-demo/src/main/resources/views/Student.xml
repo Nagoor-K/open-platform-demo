@@ -4,19 +4,40 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 
   <!-- views definitions here -->
-  <grid model="com.axelor.student.db.Student" title="Students" name="student-grid">
+  <grid model="com.axelor.student.db.Student" title="Students" name="student-grid" editable="true" orderBy="-name">
+  		<toolbar>
+  			<button onClick="action" name="Cliclme" title="Click Button" prompt="Are Sure want to test?" icon="fa-print"/>
+  		</toolbar>
+  		
+  		<menubar>
+  			<menu title="Buttons">
+  				<item action="" title="Test Button"/>
+  			</menu>
+  		</menubar>
+  		<hilite if="rollnumber==null" background="danger" strong="true" />
   		<field name="name"/>
   		<field name="rollnumber"/>
   		<field name="classno"/>
   		<field name="DOB"/>
+  		<field name="percentafe" aggregate="avg"/>
+  		
+  		<button onClick="actonme" name="cliclhere" title="Click Here" help="Click here to do an action" icon="fa-print"/>
   		
   </grid>
   <form model="com.axelor.student.db.Student" title="Student" name="student-form">
   		<panel>
+  				<field name="status"/>
   				<field name="name"/>
   				<field name="rollnumber"/>
   				<field name="classno"/>
   				<field name="DOB"/>
+  				<field name="description"/>
+  				<field name="reference"/>
+  				<field name="password"/>
+  				<field name="percentafe"/>
+  				<field name="image"/>
+  				<field name="school"/>
+  				
   				
   		</panel>
   </form>

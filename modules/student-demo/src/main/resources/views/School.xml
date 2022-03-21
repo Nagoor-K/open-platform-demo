@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+<grid model="com.axelor.student.db.School" title="Schools" name="school-grid" >
+		<field name="sname"/>
+		<field name="address"/>
+		<field name="schooltype"/>
+</grid>
+<form model="com.axelor.student.db.School" title="School" name="school-form">
+		<panel>
+		<field name="sname"/>
+		<field name="address"/> 
+		<field name="schooltype"/>
+		
+		<panel-related field="studentList" />    <!-- for one to many and many to many we should use panel realated insted of field-->
+		<panel-related field="employeeSet"/>
+		
+		</panel>
+</form>
+
+</object-views>
+  

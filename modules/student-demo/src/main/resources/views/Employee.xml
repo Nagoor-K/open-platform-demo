@@ -12,8 +12,10 @@
 				<field name="startsOn"/>
 				
 		</grid>
+		
 		<form model="com.axelor.employee.db.Employee" title="Employee" name="employee-form">
 				<panel>
+					<field name="jsonfield"/>
 					<field name="ename"/>
 					<field name="active"/>
 					<field name="roomno"/>
@@ -21,6 +23,7 @@
 					<field name="inDate"/>
 					<field name="duration"/>
 					<field name="startsOn"/>
+					<field name="image"/>
 					
 				</panel>
 				
