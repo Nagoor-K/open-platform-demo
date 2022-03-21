@@ -16,7 +16,7 @@
   		</menubar>
   		<hilite if="rollnumber==null" background="danger" strong="true" />
   		<field name="name"/>
-  		<field name="rollnumber"/>
+  		<field name="rollnumber" canView=""/>
   		<field name="classno"/>
   		<field name="DOB"/>
   		<field name="percentafe" aggregate="avg"/>
