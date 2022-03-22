@@ -14,35 +14,59 @@
 				
 		</grid>
 		
-		<form model="com.axelor.employee.db.Employee" title="Employee" name="employee-form" readonlyIf="id" canDelete="true" canArchive="true" canEdit="true" canNew="true"
-		onNew="action.student.onnew" onLoad="action.student.onload" onSave="action.employee.onsave">
+		<form model="com.axelor.employee.db.Employee" title="Employee" name="employee-form" canDelete="true" canArchive="true" canEdit="true" canNew="true"
+		onNew="action.student.onnew" onLoad="action.student.onload" onSave="action.employee.onsave" width="large">
 				
 				<panel name="mainpanel" title="Main Panel" >
 				
 					<panel name="innerpanel1" colSpan="8" title="Inner Panel 1" >
-						<field name="jsonfield"/>
-						<field name="ename"/>
+						<field name="jsonfield" widget="json-raw" colSpan="12"/>
+	
+						<field name="ename">
+							<editor>
+								<field name="roomno"/>
+								<field name="salary"/>
+							</editor>
+						 </field>
 						<field name="active"/>
+						<separator colSpan="12"/>
 						<field name="roomno"/>
 						<field name="salary"/>
 					</panel>
 					
 					
 				</panel>
+				<panel-stack>
+					<panel name="panelstack" title="Panel Stack1">
+						<field name="roomno"/>
+					</panel>
+						
+					<panel name="panelstack2" title="Panel Stack 2">
+						<field name="salary"/>
+					</panel>
+				</panel-stack>
 				
 				<panel-tabs>
-					<panel name="paneltab1" title="Employee Details">
+					<panel name="paneltab1" title="Employee Details" onTabSelect="acton.on.tab.select">
 						<field name="inDate"/>
 						<field name="duration"/>
+						
+						<help>THis is a help Tag</help>
 						
 					</panel>
 					<panel name="paneltab2" title="Employee Details 2">
 						<field name="startsOn"/>
 						<field name="image" colSpan="12"/>
+						
+						<label title="This is Label Tag"/>
 					</panel>
 				</panel-tabs>
 				
 		</form>
+		
+		<action-record name="acton.on.tab.select" model="com.axelor.employee.db.Employee">
+				<field name="inDate" expr="eval:__date__"/>
+		</action-record>
 		
 		<action-record name="action.employee.onsave" model="com.axelor.employee.db.Employee">
 		<field name="active" expr="true"/>
