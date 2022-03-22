@@ -19,21 +19,24 @@
 				
 				<panel name="mainpanel" title="Main Panel" >
 				
-					<panel name="innerpanel1" colSpan="8" title="Inner Panel 1">
+					<panel name="innerpanel1" colSpan="8" title="Inner Panel 1" >
 						<field name="jsonfield"/>
 						<field name="ename"/>
 						<field name="active"/>
 						<field name="roomno"/>
 						<field name="salary"/>
 					</panel>
-					<panel name="innerpanel2" colSpan="4" title="Inner Panel 2" hideIf="salary==0">
+					
+					
+				</panel>
+				
+				<panel name="innerpanel2" colSpan="4" title="Inner Panel 2" hideIf="salary==0" attached="false" sidebar="true"
+				stacked="true" canCollapse="true" collapseIf="true">
 						<field name="inDate"/>
 						<field name="duration"/>
 						<field name="startsOn"/>
 						<field name="image" colSpan="12"/>
 					</panel>
-					
-				</panel>
 				
 		</form>
 		
