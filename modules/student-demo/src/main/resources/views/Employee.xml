@@ -30,13 +30,17 @@
 					
 				</panel>
 				
-				<panel name="innerpanel2" colSpan="4" title="Inner Panel 2" hideIf="salary==0" attached="false" sidebar="true"
-				stacked="true" canCollapse="true" collapseIf="true">
+				<panel-tabs>
+					<panel name="paneltab1" title="Employee Details">
 						<field name="inDate"/>
 						<field name="duration"/>
+						
+					</panel>
+					<panel name="paneltab2" title="Employee Details 2">
 						<field name="startsOn"/>
 						<field name="image" colSpan="12"/>
 					</panel>
+				</panel-tabs>
 				
 		</form>
 		

@@ -8,6 +8,7 @@
 		<field name="address"/>
 		<field name="schooltype"/>
 </grid>
+
 <form model="com.axelor.student.db.School" title="School" name="school-form">
 		<panel>
 		<field name="sname"/>
