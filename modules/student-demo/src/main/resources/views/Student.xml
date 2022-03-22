@@ -4,8 +4,9 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 
   <!-- views definitions here -->
-  <grid model="com.axelor.student.db.Student" title="Students" name="student-grid" editable="true" orderBy="-name">
+  <grid model="com.axelor.student.db.Student" title="Students" name="student-grid" editable="true" orderBy="-name" >
   		<toolbar>
+  			
   			<button onClick="action" name="Cliclme" title="Click Button" prompt="Are Sure want to test?" icon="fa-print"/>
   		</toolbar>
   		
@@ -24,19 +25,23 @@
   		<button onClick="actonme" name="cliclhere" title="Click Here" help="Click here to do an action" icon="fa-print"/>
   		
   </grid>
-  <form model="com.axelor.student.db.Student" title="Student" name="student-form">
-  		<panel>
-  				<field name="status"/>
-  				<field name="name"/>
-  				<field name="rollnumber"/>
-  				<field name="classno"/>
-  				<field name="DOB"/>
-  				<field name="description"/>
-  				<field name="reference"/>
-  				<field name="password"/>
-  				<field name="percentafe"/>
-  				<field name="image"/>
-  				<field name="school"/>
+  <form model="com.axelor.student.db.Student" title="Student" name="student-form" canNew="false">
+  		<panel name="mainpanel">
+  				<panel name="innerpanel1">
+					<field name="status"/>
+	  				<field name="name"/>
+	  				<field name="rollnumber"/>
+	  				<field name="classno"/>
+	  				<field name="DOB"/>
+  				</panel>
+  				<panel name="innerpanel2">
+  					<field name="description"/>
+	  				<field name="reference"/>
+	  				<field name="password"/>
+	  				<field name="percentafe"/>
+	  				<field name="image"/>
+	  				<field name="school"/>
+  				</panel>
   				
   				
   		</panel>

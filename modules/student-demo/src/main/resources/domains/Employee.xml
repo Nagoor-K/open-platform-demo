@@ -8,7 +8,7 @@
   <entity name="Employee" lang="java" table="Employee_Table" >
   		
   		<string name="jsonfield" title="Json Detaisls" json="true" />
-  		<string name="ename" required="true" column="Employee_Name" min="5" max="15" default="axelor" namecolumn="true"/>
+  		<string name="ename" required="true" column="Employee_Name" min="5" max="15" namecolumn="true"/>
   		<boolean name="active" />
   		<integer name="roomno" title="OfficeRoom Number" />
   		<long name="salary" required="true" column="Salary" title="Salary"/>

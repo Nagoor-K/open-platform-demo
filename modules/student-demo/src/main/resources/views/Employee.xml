@@ -2,8 +2,9 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-		<grid model="com.axelor.employee.db.Employee" title="Employees" name="employee-grid">
-				<field name="ename"/>
+		<grid model="com.axelor.employee.db.Employee" title="Employees" name="employee-grid" editable="false" >
+				<field name="ename" />
+				
 				<field name="active"/>
 				<field name="roomno"/>
 				<field name="salary"/>
@@ -13,21 +14,39 @@
 				
 		</grid>
 		
-		<form model="com.axelor.employee.db.Employee" title="Employee" name="employee-form">
-				<panel>
-					<field name="jsonfield"/>
-					<field name="ename"/>
-					<field name="active"/>
-					<field name="roomno"/>
-					<field name="salary"/>
-					<field name="inDate"/>
-					<field name="duration"/>
-					<field name="startsOn"/>
-					<field name="image"/>
+		<form model="com.axelor.employee.db.Employee" title="Employee" name="employee-form" readonlyIf="id" canDelete="true" canArchive="true" canEdit="true" canNew="true"
+		onNew="action.student.onnew" onLoad="action.student.onload" onSave="action.employee.onsave">
+				
+				<panel name="mainpanel" title="Main Panel" >
+				
+					<panel name="innerpanel1" colSpan="8" title="Inner Panel 1">
+						<field name="jsonfield"/>
+						<field name="ename"/>
+						<field name="active"/>
+						<field name="roomno"/>
+						<field name="salary"/>
+					</panel>
+					<panel name="innerpanel2" colSpan="4" title="Inner Panel 2" hideIf="salary==0">
+						<field name="inDate"/>
+						<field name="duration"/>
+						<field name="startsOn"/>
+						<field name="image" colSpan="12"/>
+					</panel>
 					
 				</panel>
 				
 		</form>
+		
+		<action-record name="action.employee.onsave" model="com.axelor.employee.db.Employee">
+		<field name="active" expr="true"/>
+		
+		</action-record>
+		<action-validate name="action.student.onload">
+			<notify message="Salary is not mentioned" if="salary==0"/>
+		</action-validate>
+		<action-record name="action.student.onnew" model="com.axelor.employee.db.Employee">
+			<field name="duration" expr="Axelor"/>
+		</action-record>
 
 </object-views>
   
