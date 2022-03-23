@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+<kanban columnBy="statusSelect" model="com.axelor.student.db.Project" limit="2" onNew="action.record.project.onnew" onMove="action.record.project.onmove" width="large" sequenceBy="priority" title="Projects" name="project-kanban">
+	<field name="name" />
+	<field name="percentage"/>
+
+	<field name="marks"/>
+	<field name="description"/>
+	
+	<template>
+		<![CDATA[
+			<div>
+				<h4>Name of the Project</h4>
+				<h5>{{record.name}}</h5>
+				<h4>Percentage</h4>
+				<h5>{{record.percentage}}</h5>
+				<h4>Marks</h4>
+				<h5>{{record.marks}}</h5>
+				<h4>Descrption</h4>
+				<h5>{{record.description}}</h5>
+			</div>
+		
+		]]>
+	</template>
+	
+	
+
+</kanban>
+
+<action-validate name="action.record.project.onmove" model="com.axelor.student.db.Project">
+	<info message="Record is moved"/>
+</action-validate>
+
+<action-record name="action.record.project.onnew" model="com.axelor.student.db.Project">
+
+<field name="name" expr="Axelor Project"/>
+
+</action-record>
+
+<form model="com.axelor.student.db.Project" title="Project" name="project-form" width="large">
+	<panel title="Project Form">
+		<field name="statusSelect" showTitle="false" colSpan="12" widget="NavSelect"/>
+		<field name="name" />
+		<field name="percentage"/>
+	
+		<field name="marks"/>
+		<field name="description" widget="html"/>
+	</panel>
+	
+</form>
+
+</object-views>
+

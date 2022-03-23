@@ -17,7 +17,7 @@
 		onNew="action.student.onnew" onLoad="action.student.onload" onSave="action.employee.onsave" width="large">
 				
 				<panel name="mainpanel" title="Main Panel" >
-				<panel-include view="anoemployee-popup-form"/>
+				<panel-include view="employee-popup-form"/>
 				
 					<panel name="innerpanel1" colSpan="8" title="Inner Panel 1" >
 						<field name="jsonfield" widget="json-raw" colSpan="12"/>
@@ -57,8 +57,7 @@
 					</panel>
 					<panel name="paneltab2" title="Employee Details 2">
 						<field name="startsOn"/>
-						<field name="image" colSpan="12"/>
-						
+					<field name="image" colSpan="12"/>					
 						<label title="This is Label Tag"/>
 					</panel>
 				</panel-tabs>
@@ -90,6 +89,50 @@
 		<action-record name="action.student.onnew" model="com.axelor.employee.db.Employee">
 			<field name="duration" expr="Axelor"/>
 		</action-record>
+		
+		<!-- cards view implementation -->
+		
+		<cards name="employee-cards" model="com.axelor.employee.db.Employee" title="Employee Card View">
+				<field name="ename" />
+				<field name="active"/>
+				<field name="roomno"/>
+				<field name="salary"/>
+				<field name="inDate"/>
+				<field name="image"/>
+				<template>
+				<![CDATA[
+					 <div class="span4 card-image">
+					    
+					        <img ng-if="image" ng-src="{{$image(null, 'image')}}">
+					    
+					    
+					  </div>
+					  
+					  <div class="span4">
+					  	<strong>{{ename}}</strong>
+					    <strong>{{active}}</strong>
+					    
+					    <strong>{{roomno}}</strong>
+					    
+					    <strong>{{salary}}</strong>
+					    
+					    <strong>{{inDate}}</strong>
+					  </div>
+				]]>
+				</template>
+		</cards>
+		
+		<!-- implementing tree view -->
+		
+		<tree name="employee-tree" title="Employee Tree View">
+			<column name="title" type="string"/>
+			<column name="no" type="integer"/>
+			
+			<node model="com.axelor.employee.db.Employee">
+				<field name="ename" as="title"/>
+				<field name="roomno" as="no"/>
+			</node>
+		</tree>
 
 </object-views>
   
