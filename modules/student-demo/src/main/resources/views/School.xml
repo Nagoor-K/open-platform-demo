@@ -9,16 +9,41 @@
 		<field name="schooltype"/>
 </grid>
 
-<form model="com.axelor.student.db.School" title="School" name="school-form">
-		<panel>
+<form model="com.axelor.student.db.School" title="School" name="school-form" width="large">
+		<panel name="mainpanel" title="Main Panel">
 		<field name="sname"/>
 		<field name="address"/> 
 		<field name="schooltype"/>
 		
-		<panel-related field="studentList" />    <!-- for one to many and many to many we should use panel realated insted of field-->
-		<panel-related field="employeeSet"/>
-		
 		</panel>
+		
+		<panel-tabs>
+			<panel name="tabpanle1" title="Panel Tab1">
+				<panel-related field="studentList" colSpan="12" canMove="true"  x-selector="checkbox"/>    <!-- for one to many and many to many we should use panel realated insted of field-->
+				
+			</panel>
+			
+			<panel name="tabpanel2" title="panel Tab2">
+				<panel-related field="employeeSet" colSpan="12" x-selector="checkbox" canMove="true" form-view="employee-popup-form"  grid-view="employee-grid"/>
+			</panel>
+			
+			<panel title="Editor">
+				<field name="studentList">
+					<editor x-viewer="true">
+						<field name="sname"/>
+					</editor>
+				</field>
+			</panel>
+			
+			<panel title="Viwer">
+				<field name="studentList">
+					<viewer>c<![CDATA[
+						<strong>{{record.sname|upper}}</strong>
+					]]></viewer>
+				</field>
+			</panel>
+			
+		</panel-tabs>
 </form>
 
 </object-views>

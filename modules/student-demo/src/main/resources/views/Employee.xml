@@ -2,9 +2,8 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-		<grid model="com.axelor.employee.db.Employee" title="Employees" name="employee-grid" editable="false" >
+		<grid model="com.axelor.employee.db.Employee" title="Employees" canMove="true" name="employee-grid" editable="false" >
 				<field name="ename" />
-				
 				<field name="active"/>
 				<field name="roomno"/>
 				<field name="salary"/>
@@ -18,17 +17,15 @@
 		onNew="action.student.onnew" onLoad="action.student.onload" onSave="action.employee.onsave" width="large">
 				
 				<panel name="mainpanel" title="Main Panel" >
+				<panel-include view="anoemployee-popup-form"/>
 				
 					<panel name="innerpanel1" colSpan="8" title="Inner Panel 1" >
 						<field name="jsonfield" widget="json-raw" colSpan="12"/>
 	
-						<field name="ename">
-							<editor>
-								<field name="roomno"/>
-								<field name="salary"/>
-							</editor>
-						 </field>
-						<field name="active"/>
+						<field name="ename" />
+						<field name="roomno"/>
+						<field name="salary"/>
+					
 						<separator colSpan="12"/>
 						<field name="roomno"/>
 						<field name="salary"/>
@@ -36,6 +33,7 @@
 					
 					
 				</panel>
+				<!-- panel stack implementation -->
 				<panel-stack>
 					<panel name="panelstack" title="Panel Stack1">
 						<field name="roomno"/>
@@ -45,6 +43,9 @@
 						<field name="salary"/>
 					</panel>
 				</panel-stack>
+				
+				
+				<!-- panel tabs Implementation -->
 				
 				<panel-tabs>
 					<panel name="paneltab1" title="Employee Details" onTabSelect="acton.on.tab.select">
@@ -63,6 +64,17 @@
 				</panel-tabs>
 				
 		</form>
+		
+		
+		<!-- form for pop add employee in school form -->
+		<form model="com.axelor.employee.db.Employee" title="Employee Form" name="employee-popup-form">
+				<panel name="anotherformpanel" title="Anthoer Form panel included">
+					<field name="ename" />
+					<field name="roomno"/>
+					<field name="salary"/>
+				</panel>
+		</form>
+		
 		
 		<action-record name="acton.on.tab.select" model="com.axelor.employee.db.Employee">
 				<field name="inDate" expr="eval:__date__"/>

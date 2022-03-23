@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 
   <!-- views definitions here -->
-  <grid model="com.axelor.student.db.Student" title="Students" name="student-grid" editable="true" orderBy="-name" >
+  <grid model="com.axelor.student.db.Student" title="Students" name="student-grid" editable="false" orderBy="-name" >
   		<toolbar>
   			
   			<button onClick="action" name="Cliclme" title="Click Button" prompt="Are Sure want to test?" icon="fa-print"/>
