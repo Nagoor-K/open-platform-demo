@@ -137,6 +137,16 @@
 		<calendar name="employee-calender" eventLength="1" model="com.axelor.employee.db.Employee" mode="month" eventStart="startsOn" eventStop="inDate" title="Calender View">
 			<field name="ename"/>
 		</calendar>
+		
+	<dashboard name="employee-dashboard" title="Dashboard View">
+		<dashlet action="chart:employee-grid"/>
+	</dashboard>
+	
+	<gantt model="com.axelor.employee.db.Employee" taskDuration="duration" taskEnd="inDate" taskStart="startsOn" title="Gnatt View" name="employee-gnatt">
+		<field name="ename" />
+		<field name="roomno"/>
+		
+	</gantt>
 
 </object-views>
   

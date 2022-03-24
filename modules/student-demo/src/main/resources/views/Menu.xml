@@ -20,6 +20,9 @@
  		<view type="cards" name="employee-cards"/>
  		<!-- <view type="tree" name="employee-tree"/> -->
  		<view type="calendar" name="employee-calender"/>
+ 		<view type="dashboard" name="employee-dashboard"/>
+ 		<view type="gantt" name="employee-gnatt"/>
+ 		
  </action-view>
  
  <menuitem title="Schools" name="student-root-school" parent="student-root" action="action.student.root.school"/>
