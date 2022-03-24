@@ -3,8 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
  
- <menuitem title="Demo College" name="student-root"/>
- <menuitem title="Students" name="student-root-student" parent="student-root" action="action.student.root.student"/>
+ <menuitem title="Demo College" name="student-root" icon="fa-user" tag-count="true" tag-style="important"/>
+ <menuitem title="Students" name="student-root-student" parent="student-root" icon-background="red" icon="fa-user" action="action.student.root.student" tag-count="true"  top="true" tag-style="important"/>
  <action-view name="action.student.root.student" title="Students" model="com.axelor.student.db.Student">
 		<view type="grid" name="student-grid"/>
 		<view type="form" name="student-form"/>
@@ -13,7 +13,7 @@
  </action-view>
  
  
- <menuitem title="Employees" name="student-root-employee" parent="student-root" action="action.student.root.employee"/>
+ <menuitem title="Employees" name="student-root-employee" parent="student-root" icon-background="black" icon="fa-user" action="action.student.root.employee" tag-count="true" tag-style="success"/>
  <action-view name="action.student.root.employee" title="Employees" model="com.axelor.employee.db.Employee">
  		<view type="grid" name="employee-grid"/>
  		<view type="form" name="employee-form"/>
@@ -25,19 +25,21 @@
  		
  </action-view>
  
- <menuitem title="Schools" name="student-root-school" parent="student-root" action="action.student.root.school"/>
+ <menuitem title="Schools" name="student-root-school" parent="student-root" action="action.student.root.school" icon-background="yellow" order="-200" icon="fa-user" tag="NK" 
+ tag-style="warning" />
  <action-view name="action.student.root.school" title="Schools" model="com.axelor.student.db.School">
  		<view type="grid" name="school-grid"/>
  		<view type="form" name="school-form"/>
  </action-view>
  
- <menuitem title="Address" name="student-root-address" parent="student-root" action="action.student.root.address"/>
+ <menuitem title="Address" name="student-root-address" parent="student-root" action="action.student.root.address" icon-background="blue" icon="fa-user" tag="Nagoor Tag" 
+ tag-style="inverse" />
  <action-view name="action.student.root.address" title="Address" model="com.axelor.student.db.Address">
  		<view type="grid" name="address-grid"/>
  		<view type="form" name="address-from"/>
  </action-view>
  
- <menuitem title="Projects" name="student-root-project" parent="student-root" action="action.student.root.project"/>
+ <menuitem title="Projects" name="student-root-project" parent="student-root" action="action.student.root.project" icon-background="green" icon="fa-user" tag-count="true" tag-style="info"/>
  <action-view name="action.student.root.project" title="Project" model="com.axelor.student.db.Project">
  	<view type="kanban" name="project-kanban"/>
  	<view type="form" name="project-form"/>

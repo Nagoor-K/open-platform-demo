@@ -46,7 +46,8 @@
   				
   		</panel>
   </form>
-
-
+  
+  <action-validate name="actonme">
+  <error message="You have clicled on this button"/></action-validate>
 
 </object-views>
