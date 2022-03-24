@@ -14,7 +14,7 @@
  
  
  <menuitem title="Employees" name="student-root-employee" parent="student-root" icon-background="black" icon="fa-user" action="action.student.root.employee" tag-count="true" tag-style="success"/>
- <action-view name="action.student.root.employee" title="Employees" model="com.axelor.employee.db.Employee">
+ <action-view name="action.student.root.employee" title="Employees Acton" model="com.axelor.employee.db.Employee">
  		<view type="grid" name="employee-grid"/>
  		<view type="form" name="employee-form"/>
  		<view type="cards" name="employee-cards"/>
@@ -22,6 +22,14 @@
  		<view type="calendar" name="employee-calender"/>
  		<view type="dashboard" name="employee-dashboard"/>
  		<view type="gantt" name="employee-gnatt"/>
+ 		<view-param name="forceEdit" value="true"/>
+ 		<view-param name="forceTitle" value="true"/>
+ 		<view-param name="showArchived" value="true"/>
+ 		<view-param name="search-filters" value="search-filter-employee"/>
+ 		
+ 		<domain>self.active = :_test</domain>
+ 		<context name="_test" expr="true"/>
+ 		
  		
  </action-view>
  

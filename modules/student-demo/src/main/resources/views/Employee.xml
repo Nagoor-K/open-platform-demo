@@ -147,6 +147,10 @@
 		<field name="roomno"/>
 		
 	</gantt>
+	<search-filters name="search-filter-employee" model="com.axelor.employee.db.Employee" title="Custom Search Options">
+		<field name="inDate" hidden="true"/>
+		<field name="image" hidden="true"/>
+	</search-filters>
 
 </object-views>
   
