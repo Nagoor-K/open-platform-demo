@@ -92,7 +92,7 @@
 		
 		<!-- cards view implementation -->
 		
-		<cards name="employee-cards" model="com.axelor.employee.db.Employee" title="Employee Card View">
+		<cards name="employee-cards" model="com.axelor.employee.db.Employee" title="Employee Card View" >
 				<field name="ename" />
 				<field name="active"/>
 				<field name="roomno"/>
@@ -124,7 +124,7 @@
 		
 		<!-- implementing tree view -->
 		
-		<tree name="employee-tree" title="Employee Tree View">
+		<!-- <tree name="employee-tree" title="Employee Tree View">
 			<column name="title" type="string"/>
 			<column name="no" type="integer"/>
 			
@@ -132,7 +132,11 @@
 				<field name="ename" as="title"/>
 				<field name="roomno" as="no"/>
 			</node>
-		</tree>
+		</tree> -->
+		
+		<calendar name="employee-calender" eventLength="1" model="com.axelor.employee.db.Employee" mode="month" eventStart="startsOn" eventStop="inDate" title="Calender View">
+			<field name="ename"/>
+		</calendar>
 
 </object-views>
   

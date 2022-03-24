@@ -8,6 +8,7 @@
  <action-view name="action.student.root.student" title="Students" model="com.axelor.student.db.Student">
 		<view type="grid" name="student-grid"/>
 		<view type="form" name="student-form"/>
+		<view-param name="details-view" value="true" />
 		
  </action-view>
  
@@ -17,7 +18,8 @@
  		<view type="grid" name="employee-grid"/>
  		<view type="form" name="employee-form"/>
  		<view type="cards" name="employee-cards"/>
- 		<view type="tree" name="employee-tree"/>
+ 		<!-- <view type="tree" name="employee-tree"/> -->
+ 		<view type="calendar" name="employee-calender"/>
  </action-view>
  
  <menuitem title="Schools" name="student-root-school" parent="student-root" action="action.student.root.school"/>
