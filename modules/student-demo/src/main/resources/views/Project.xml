@@ -46,7 +46,7 @@
 		<field name="name" onChange="action-project-group-on-change"/>
 		<field name="percentage" onChange="action-project-group-on-change"/>
 	
-		<field name="marks"/>
+		<field name="marks" onChange="action-project-validate-marks"/>
 		<field name="description" widget="html"/>
 	</panel>
 	<panel title="Project Side Bar" sidebar="true">
@@ -77,6 +77,10 @@
 <action-record name="action-project-search-attrs" model="com.axelor.student.db.Project" search="self.name IS NOT NULL">
 	<field name="name" expr="Default"/>
 </action-record>
+
+<action-validate name="action-project-validate-marks">
+<error message="Marks are can not be greater than 100" if="marks &gt; 100"/>
+</action-validate>
 
 </object-views>
 

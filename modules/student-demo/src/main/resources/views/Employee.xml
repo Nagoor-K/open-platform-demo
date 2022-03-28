@@ -14,7 +14,7 @@
 		</grid>
 		
 		<form model="com.axelor.employee.db.Employee" title="Employee" name="employee-form" canDelete="true" canArchive="true" canEdit="true" canNew="true"
-		onNew="action.student.onnew" onLoad="action.student.onload" onSave="action.employee.onsave" width="large">
+		onNew="action.student.onnew" onLoad="action.student.onload" onSave="action.employee.onsave,action-employee-check-condition" width="large">
 				
 				<panel name="mainpanel" title="Main Panel" >
 				<panel-include view="employee-popup-form"/>
@@ -93,6 +93,16 @@
 		<action-method name="action-employee-say-method">
 		<call class="com.axelor.employee.db.web.EmployeeController" method="sayMethod"/>
 		</action-method>
+		
+		<action-validate name="action-employee-validate-startdate">
+		<notify message="The Date eas in future" if="confirmed &amp;&amp; inDate &gt; __date_"/>
+		</action-validate>
+		
+		<action-condition name="action-employee-check-condition">
+		<check field="inDate"/>
+		<check field="inDate" if="inDate &gt; __date__" error="This action condition error"/>
+		
+		</action-condition>
 		
 		<!-- cards view implementation -->
 		
