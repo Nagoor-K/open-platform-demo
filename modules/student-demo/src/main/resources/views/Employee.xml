@@ -27,7 +27,7 @@
 						<field name="salary"/>
 					
 						<separator colSpan="12"/>
-						<field name="roomno"/>
+						<field name="roomno" onChange="save,action-employee-say-method"/>
 						<field name="salary"/>
 					</panel>
 					
@@ -87,8 +87,12 @@
 			<notify message="Salary is not mentioned" if="salary==0"/>
 		</action-validate>
 		<action-record name="action.student.onnew" model="com.axelor.employee.db.Employee">
-			<field name="duration" expr="Axelor"/>
+			<field name="ename" expr=""/>
 		</action-record>
+		
+		<action-method name="action-employee-say-method">
+		<call class="com.axelor.employee.db.web.EmployeeController" method="sayMethod"/>
+		</action-method>
 		
 		<!-- cards view implementation -->
 		
