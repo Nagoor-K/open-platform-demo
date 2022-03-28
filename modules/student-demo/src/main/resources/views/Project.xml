@@ -40,19 +40,43 @@
 
 </action-record>
 
-<form model="com.axelor.student.db.Project" title="Project" name="project-form" width="large">
+<form model="com.axelor.student.db.Project" title="Project" name="project-form" width="large" onLoad="action-project-attr-validate" onNew="action-project-on-new">
 	<panel title="Project Form">
-		<field name="statusSelect" showTitle="false" colSpan="12" widget="NavSelect"/>
-		<field name="name" />
-		<field name="percentage"/>
+		<field name="statusSelect" showTitle="false" colSpan="12" widget="NavSelect" onChange="action-project-group-on-change"/>
+		<field name="name" onChange="action-project-group-on-change"/>
+		<field name="percentage" onChange="action-project-group-on-change"/>
 	
 		<field name="marks"/>
 		<field name="description" widget="html"/>
 	</panel>
+	<panel title="Project Side Bar" sidebar="true">
+	<button onClick="action-project-group-on-change" name="save" title="Save"/>
+	</panel>
 	
 </form>
 
+<action-group name="action-project-group-on-change">
+	<action name="save"/>
+	<action name="action-project-attr-validate"/>
+	<action name="action-project-attrs-chnage-hidden"/>
+	<action name="action-project-search-attrs"/>
+</action-group>
 
+<action-attrs name="action-project-attr-validate">
+  <attribute for="name" name="readonly" expr="eval: true" if="statusSelect==1"/> 
+</action-attrs>
+
+<action-attrs name="action-project-attrs-chnage-hidden">
+<attribute name="hidden" for="percentage" expr="eval: true" if="statusSelect &gt;=1"/>
+</action-attrs>
+
+<action-record name="action-project-on-new" model="com.axelor.student.db.Project" copy="true">
+<field name="description" expr="This is the descrption for project"/>
+</action-record>
+
+<action-record name="action-project-search-attrs" model="com.axelor.student.db.Project" search="self.name IS NOT NULL">
+	<field name="name" expr="Default"/>
+</action-record>
 
 </object-views>
 
