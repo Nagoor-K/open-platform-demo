@@ -10,3 +10,4 @@
 rootProject.name = 'open-platform-demo'
 
 include "modules:student-demo"
+include "modules:data-import"

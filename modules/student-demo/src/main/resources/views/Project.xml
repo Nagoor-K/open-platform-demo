@@ -3,7 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 
-<kanban columnBy="statusSelect" model="com.axelor.student.db.Project" limit="2" onNew="action.record.project.onnew" onMove="action.record.project.onmove" width="large" sequenceBy="priority" title="Projects" name="project-kanban">
+<kanban columnBy="statusSelect" model="com.axelor.student.db.Project" limit="2" onNew="action.record.project.onnew" onMove="action.record.project.onmove" width="large" sequenceBy="priority" title="Projects"
+ 	name="project-kanban">
 	<field name="name" />
 	<field name="percentage"/>
 
@@ -60,6 +61,7 @@
 	<action name="action-project-attr-validate"/>
 	<action name="action-project-attrs-chnage-hidden"/>
 	<action name="action-project-search-attrs"/>
+	<action name="action.data.import"/>
 </action-group>
 
 <action-attrs name="action-project-attr-validate">
@@ -81,6 +83,13 @@
 <action-validate name="action-project-validate-marks">
 <error message="Marks are can not be greater than 100" if="marks &gt; 100"/>
 </action-validate>
+
+<!-- <action-import name="data.import.1" config="data/xml/csv-config.xml">
+	<import file="project.csv" provider="ws.test.1" name="projects"/>
+</action-import> -->
+<action-import name="action.data.import" config="data/csv-config.xml">
+	<import file="project.csv" provider="ws.1" name="projects"/>
+</action-import>
 
 </object-views>
 
