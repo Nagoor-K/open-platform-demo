@@ -53,5 +53,12 @@
  	<view type="form" name="project-form"/>
  </action-view>
  
+ <menuitem title="Titles" name="student-root-title" parent="student-root" action="action.student.root.title"/>
+ <action-view name="action.student.root.title" title="Titles" model="com.axelor.student.db.Title">
+ 	<view type="grid" name="title-grid"/>
+ 	<view type="form" name="title-form"/>
+ </action-view>
+ 
+ 
  </object-views>
  
