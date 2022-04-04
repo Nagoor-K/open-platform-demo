@@ -5,7 +5,7 @@
 		<grid model="com.axelor.employee.db.Employee" title="Employees" canMove="true" name="employee-grid" editable="false" >
 				<field name="ename" />
 				<field name="active"/>
-				<field name="roomno"/>
+				<field name="roomno" />
 				<field name="salary"/>
 				<field name="inDate"/>
 				<field name="duration"/>
@@ -23,8 +23,9 @@
 						<field name="jsonfield" widget="json-raw" colSpan="12"/>
 	
 						<field name="ename" />
-						<field name="roomno"/>
+						<field name="roomno" widget="Integer" min="1" max="100"/>
 						<field name="salary"/>
+						<field name="active" widget="boolean-radio" x-true-text="On" x-false-text="Off"/>
 					
 						<separator colSpan="12"/>
 						<field name="roomno" onChange="save,action-employee-say-method"/>
@@ -37,6 +38,7 @@
 				<panel-stack>
 					<panel name="panelstack" title="Panel Stack1">
 						<field name="roomno"/>
+						<field name="active" widget="boolean-switch" />
 					</panel>
 						
 					<panel name="panelstack2" title="Panel Stack 2">
@@ -71,6 +73,8 @@
 					<field name="ename" />
 					<field name="roomno"/>
 					<field name="salary"/>
+					<field name="active" widget="boolean-select" x-true-text="Yes" x-false-text="No" />
+					
 				</panel>
 		</form>
 		

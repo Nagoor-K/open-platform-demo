@@ -7,20 +7,23 @@
   <grid model="com.axelor.student.db.Student" title="Students"  name="student-grid" editable="false" orderBy="-name">
   		<toolbar>
   			
-  			<button onClick="action" name="Cliclme" title="Click Button" prompt="Are Sure want to test?" icon="fa-print"/>
+  			<button onClick="action.create.report" name="reports" title="Print Reports" prompt="Are Sure want to test?" icon="fa-print"/>
   		</toolbar>
   		
   		<menubar>
+  		
   			<menu title="Buttons">
   				<item action="" title="Test Button"/>
   			</menu>
+  			
   		</menubar>
   		<hilite if="rollnumber==null" background="danger" strong="true" />
   		<field name="name"/>
   		<field name="rollnumber" canView=""/>
   		<field name="classno"/>
   		<field name="DOB"/>
-  		<field name="percentafe" aggregate="avg"/>
+  		<field name="percentafe" aggregate="avg" widget="Decimal"/>
+  		<field name="reference"/> 
   		
   		<button onClick="actonme" name="cliclhere" title="Click Here" help="Click here to do an action" icon="fa-print"/>
   		
@@ -35,7 +38,7 @@
 	  				<field name="DOB"/>
   				</panel>
   				<panel name="innerpanel2">
-  					<field name="description"/>
+  					<field name="phonenumber" widget="phone"/>
 	  				<field name="reference"/>
 	  				<field name="password"/>
 	  				<field name="percentafe"/>
@@ -49,5 +52,9 @@
   
   <action-validate name="actonme">
   <error message="You have clicled on this button"/></action-validate>
+  
+  <action-report output="invoice-${date}${time}" name="action.create.report" design="invoice.rptdesign" format="pdf">
+  			<param name="name" expr="eval:__date" if="status == PASS"/>
+  </action-report>
 
 </object-views>
