@@ -16,10 +16,14 @@
   
   </form>
   
+  <action-ws service="http://localhost/ws/soap/SomeService.asmx" name="action.ws.1">
+  	<action name="SoapSevices" template="data/ws/ws-login.tmpl" engine="groovy"/>
+  </action-ws>
   
-  <!-- <action-import name="action-student-on-new" config="data-init/nput-config.xml">
-  	<import file="title.csv" provider="action-ws"/>
-  </action-import> -->
+  
+  <action-import name="action-student-on-new" config="data-init/nput-config.xml">
+  	<import file="title.csv" provider="action.ws.1"/>
+  </action-import>
   
   </object-views>
   
