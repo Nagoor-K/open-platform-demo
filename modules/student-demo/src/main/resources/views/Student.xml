@@ -19,13 +19,14 @@
   		</menubar>
   		<hilite if="rollnumber==null" background="danger" strong="true" />
   		<field name="name"/>
-  		<field name="rollnumber" canView=""/>
-  		<field name="classno"/>
+  		<field name="rollnumber"/>
+  		<field name="classno" onChange="com.axelor.student.db.controllers.StudentController:validate(classno)" />
   		<field name="DOB"/>
   		<field name="percentafe" aggregate="avg" widget="Decimal"/>
   		<field name="reference"/> 
   		
   		<button onClick="actonme" name="cliclhere" title="Click Here" help="Click here to do an action" icon="fa-print"/>
+  		
   		
   </grid>
   <form model="com.axelor.student.db.Student" title="Student" name="student-form" canNew="false">
@@ -34,8 +35,10 @@
 					<field name="status"/>
 	  				<field name="name"/>
 	  				<field name="rollnumber"/>
-	  				<field name="classno"/>
+	  				<field name="classno" onChange="com.axelor.student.db.controllers.StudentController:validate(classno)"/>
 	  				<field name="DOB"/>
+	  				
+	  				<button onClick="com.axelor.student.db.controllers.StudentController:say" name="greet" title="Greet" icon="fa-print"/>
   				</panel>
   				<panel name="innerpanel2">
   					<field name="phonenumber" widget="phone"/>
@@ -51,7 +54,8 @@
   </form>
   
   <action-validate name="actonme">
-  <error message="You have clicled on this button"/></action-validate>
+  <error message="You have clicled on this button"/>
+  </action-validate>
   
   <action-report output="invoice-${date}${time}" name="action.create.report" design="invoice.rptdesign" format="pdf">
   			<param name="name" expr="eval:__date" if="status == PASS"/>

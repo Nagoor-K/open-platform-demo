@@ -23,7 +23,7 @@
  			return name+" --"+rollnumber;
  		]]>
  	</string>
- 	<integer name="classno" title="Class Number" massUpdate="true" max="10"/>
+ 	<integer name="classno" title="Class Number" massUpdate="true"/>
  	<date name="DOB" />
  	<string name="phonrnumber" title="Phone Number" />
  	<string name="reference" title="Reference" sequence="employee.ref" readonly="true"/>

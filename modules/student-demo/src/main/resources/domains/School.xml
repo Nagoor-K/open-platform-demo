@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
   
   <module package="com.axelor.student.db" name="School"/>
-  <entity name="School" table="School_Name" >
+  <entity name="School" table="School_Name">
   		<string name="schooltype" title="School Type" selection="student.schools.school.type"/>
   		<string name="sname" title="School Name" column="sname" namecolumn="true"/> <!-- only once in the entire entity -->
   		
