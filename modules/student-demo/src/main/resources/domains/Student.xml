@@ -14,6 +14,8 @@
  
  <entity name="Student" lang="java" table="Student_table" cachable="true">
  
+ 	
+ 
  	<enum name="status" ref="STATUS"/>
  	<string name="name" min="4" max="20" default="axelor" column="Student_Name" required="true" namecolumn="true"/>
  	
@@ -44,6 +46,8 @@
 	
 	]]>
 	</extra-code>
+	
+	<entity-listener class="com.axelor.student.db.service.StudentServe"/>
  
  </entity>
 

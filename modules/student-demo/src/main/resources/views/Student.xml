@@ -19,7 +19,7 @@
   		</menubar>
   		<hilite if="rollnumber==null" background="danger" strong="true" />
   		<field name="name"/>
-  		<field name="rollnumber"/>
+  		<field name="rollnumber" onChange="com.axelor.student.db.controllers.StudentController:validateRommno(rollnumber)"/>
   		<field name="classno" onChange="com.axelor.student.db.controllers.StudentController:validate(classno)" />
   		<field name="DOB"/>
   		<field name="percentafe" aggregate="avg" widget="Decimal"/>
@@ -34,7 +34,7 @@
   				<panel name="innerpanel1">
 					<field name="status"/>
 	  				<field name="name"/>
-	  				<field name="rollnumber"/>
+	  				<field name="rollnumber" onChange="com.axelor.student.db.controllers.StudentController:validateRommno(rollnumber)"/>
 	  				<field name="classno" onChange="com.axelor.student.db.controllers.StudentController:validate(classno)"/>
 	  				<field name="DOB"/>
 	  				
